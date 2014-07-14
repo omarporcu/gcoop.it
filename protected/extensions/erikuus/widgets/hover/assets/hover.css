@@ -1,0 +1,49 @@
+.hover-area {
+	position: relative
+}
+
+.hover-area-right {
+	float: right
+}
+
+.hover-area-clear {
+	clear: both;
+	display: block;
+	overflow: hidden;
+	visibility: hidden;
+	width: 0;
+	height: 0
+}
+
+.hover-area-trigger {
+	cursor: pointer;
+}
+
+.hover-area-content {
+	display: none;
+	position: absolute;
+	top: 22px;
+	padding: 10px;
+	background-color: #FFF;
+	border: 1px solid #CCC;
+	z-index: 100;
+	white-space: nowrap;
+	text-align: left;
+	-webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hover-area-content hr {
+	display: block;
+	position: relative;
+	padding: 0;
+	margin: 8px auto;
+	height: 0;
+	max-height: 0;
+	clear: both;
+	border: none;
+	border-top: 1px solid #DDD;
+	font-size: 1px;
+	line-height: 0;
+}
