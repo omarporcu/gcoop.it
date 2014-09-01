@@ -10,6 +10,8 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	//array('label'=>'List Parco', 'url'=>array('index')),
 	array('label'=>'Nuovo Mezzo', 'url'=>array('create')),
+	array('label'=>'Scadenze', 'url'=>array('scadenze')),
+	array('label'=>'Stampa Elenco Mezzi', 'url'=>array('print')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -45,7 +47,9 @@ $('.search-form form').submit(function(){
 		'targa',
 		'marca',
 		'modello',
-		'utente',
+		'regione',
+		//'utente',
+		//'scadenza_assicurazione',
 		array(
 			'class'=>'CButtonColumn',
 		),

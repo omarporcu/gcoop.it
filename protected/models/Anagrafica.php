@@ -8,6 +8,7 @@
  * @property string $nome
  * @property string $cognome
  * @property string $id_societa
+ * @property string $mansione
  * @property string $data_nascita
  * @property string $regione_nascita
  * @property string $provincia_nascita
@@ -53,11 +54,11 @@ class Anagrafica extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('nome, cognome, id_societa, regione_nascita, provincia_nascita, comune_nascita, c_fiscale, regione_residenza, provincia_residenza, comune_residenza, indirizzo_residenza, email, telefono, fax, cellulare, iban', 'length', 'max'=>45),
+			array('nome, cognome, id_societa, mansione, regione_nascita, provincia_nascita, comune_nascita, c_fiscale, regione_residenza, provincia_residenza, comune_residenza, indirizzo_residenza, email, telefono, fax, cellulare, iban', 'length', 'max'=>45),
 			array('data_nascita, note', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, nome, cognome, id_societa, data_nascita, regione_nascita, provincia_nascita, comune_nascita, c_fiscale, regione_residenza, provincia_residenza, comune_residenza, indirizzo_residenza, email, telefono, fax, cellulare, iban, note', 'safe', 'on'=>'search'),
+			array('id, nome, cognome, id_societa, mansione, data_nascita, regione_nascita, provincia_nascita, comune_nascita, c_fiscale, regione_residenza, provincia_residenza, comune_residenza, indirizzo_residenza, email, telefono, fax, cellulare, iban, note', 'safe', 'on'=>'search'),
 			
 		);
 
@@ -85,6 +86,7 @@ class Anagrafica extends CActiveRecord
 			'nome' => 'Nome',
 			'cognome' => 'Cognome',
 			'id_societa' => 'Società',
+			'mansione' => 'Mansione',
 			'data_nascita' => 'Data Nascita',
 			'regione_nascita' => 'Regione Nascita',
 			'provincia_nascita' => 'Provincia Nascita',
@@ -118,6 +120,7 @@ class Anagrafica extends CActiveRecord
 		$criteria->compare('nome',$this->nome,true);
 		$criteria->compare('cognome',$this->cognome,true);
 		$criteria->compare('id_societa',$this->id_societa,true);
+		$criteria->compare('mansione',$this->mansione,true);
 		$criteria->compare('data_nascita',$this->data_nascita,true);
 		$criteria->compare('regione_nascita',$this->regione_nascita,true);
 		$criteria->compare('provincia_nascita',$this->provincia_nascita,true);
@@ -150,6 +153,7 @@ class Anagrafica extends CActiveRecord
 		$criteria->compare('nome',$this->nome,true);
 		$criteria->compare('cognome',$this->cognome,true);
 		$criteria->compare('id_societa',$this->id_societa,true);
+		$criteria->compare('mansione',$this->mansione,true);
 		$criteria->compare('data_nascita',$this->data_nascita,true);
 		$criteria->compare('regione_nascita',$this->regione_nascita,true);
 		$criteria->compare('provincia_nascita',$this->provincia_nascita,true);

@@ -10,6 +10,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	//array('label'=>'Anagrafica', 'url'=>array('index')),
 	array('label'=>'Nuova Anagrafica', 'url'=>array('create')),
+	array('label'=>'Stampa Anagrafica', 'url'=>array('print')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -59,7 +60,8 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		//'provincia_residenza',
 		'comune_residenza',
 		//'indirizzo_residenza',
-		'email',
+		//'email',
+		'id_societa',
 		'telefono',
 		//'fax',
 		'cellulare',

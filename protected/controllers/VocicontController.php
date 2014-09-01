@@ -32,7 +32,7 @@ class VocicontController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','create_main','update','ajaxupdate'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -72,6 +72,25 @@ class VocicontController extends Controller
 			$model->attributes=$_POST['Vocicont'];
 			if($model->save())
 				$this->redirect(array('conteggi/view','id'=>$model->id_conteggio));
+		}
+
+		$this->render('create',array(
+			'model'=>$model,
+		));
+	}
+	
+	public function actionCreate_main()
+	{
+		$model=new Vocicont;
+
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['Vocicont']))
+		{
+			$model->attributes=$_POST['Vocicont'];
+			if($model->save())
+				$this->redirect(array('conteggi_main/view','id'=>$model->id_conteggio));
 		}
 
 		$this->render('create',array(
@@ -170,4 +189,26 @@ class VocicontController extends Controller
 			Yii::app()->end();
 		}
 	}
+	
+	public function actionAjaxupdate()
+	{
+        $aggiorna_causale = $_POST['causale'];
+        $aggiorna_importo = $_POST['importo'];
+        if(count($aggiorna_causale)>0 || count($aggiorna_importo)>0)
+        {
+            foreach($aggiorna_causale as $id=>$causale)
+            {
+                $model=$this->loadModel($id);
+                $model->causale = $aggiorna_causale[$id];
+                $model->save();
+            }
+            foreach($aggiorna_importo as $id=>$importo)
+            {
+                $model=$this->loadModel($id);
+                $model->importo = $aggiorna_importo[$id];
+                $model->save();
+            }
+        }
+	}
+	
 }

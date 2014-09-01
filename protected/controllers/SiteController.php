@@ -32,6 +32,7 @@ class SiteController extends Controller
 		$this->render('index');
 	}
 
+
 	/**
 	 * This is the action to handle external exceptions.
 	 */
@@ -95,7 +96,7 @@ class SiteController extends Controller
 			// validate user input and redirect to the previous page if valid
 			if($model->validate() && $model->login())
 				//$this->redirect(Yii::app()->user->returnUrl);
-				$this->redirect(array('/site/index'));
+				$this->redirect(array('/scadenze/index'));
 		}
 		// display the login form
 		$this->render('login',array('model'=>$model));
@@ -109,4 +110,5 @@ class SiteController extends Controller
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}
+	
 }

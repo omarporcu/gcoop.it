@@ -80,6 +80,13 @@
 			</td>
 		</tr>
 		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'regione'); ?>
+				<?php echo $form->textField($model,'regione',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($model,'regione'); ?>
+			</td>
+		</tr>
+		<tr>
 			<td colspan="2">
 				<div class="portlet-decoration">
 					<div class="portlet-title">

@@ -30,8 +30,46 @@ $this->menu=array(
 		'immatricolazione',
 		'proprietario',
 		'utente',
+		'regione',
 		'note',
 	),
 )); ?-->
 
 <?php echo $this->renderPartial('_view', array('model'=>$model)); ?>
+
+	<table style="margin-bottom: 0px !important; margin-top: 2em !important;">
+		<tr>
+			<td colspan="2">
+				<div class="portlet-decoration">
+					<div class="portlet-title">
+						Documenti Associati
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+	
+<?php $this->widget('zii.widgets.grid.CGridView', array(
+	'ajaxUpdate'=>'ajaxContent',
+	//'selectionChanged'=>"function(id){window.location='" . Yii::app()->urlManager->createUrl('allegati/view?sez=documenti&idsez='.$model->id, array('id'=>'')) . "' + $.fn.yiiGridView.getSelection(id);}",
+	'selectionChanged'=>"function(id){window.location='" . Yii::app()->urlManager->createUrl('../allegati/view?an='.'&sez=documenti&ut='.'&idsez='.'&id=') . "' + $.fn.yiiGridView.getSelection(id);}",
+		'id'=>'allegati-grid',
+	//'summaryText'=>CHtml::link('[+] Aggiungi Allegato','../allegati/create?an='.$_GET['id'].'&ut='.$nomecognome,array('class'=>'')),
+	'summaryText'=>CHtml::link('[+] Aggiungi Allegato','../allegati/create?idsez='.$_GET['id'].'&sez=parco&targa='.$model->targa,array('class'=>'')),
+	'dataProvider'=>Allegati::model()->searchByMezzo('"parco"',$_GET['id']),
+	//'filter'=>$model,
+	'columns'=>array(
+		//'id',
+		//'sezione',
+		//'idsezione',
+		'allegato',
+		'nome',
+		'descrizione',
+		'data_inserimento',
+		//'privato',
+		//'visibile',
+		/*array(
+			'class'=>'CButtonColumn',
+		),*/
+	),
+)); ?>

@@ -41,7 +41,7 @@ class Allegati extends CActiveRecord
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, sezione, idsezione, allegato, nome, descrizione, data_inserimento, privato, visibile', 'safe', 'on'=>'search'),
-			array('allegato', 'file', 'types'=>'pdf'),
+			array('allegato', 'file', 'types'=>'pdf, jpg, png'),
 		);
 	}
 
@@ -119,6 +119,75 @@ class Allegati extends CActiveRecord
 	}
 	
 	public function searchByDocumenti($sez,$idsez)
+	{
+		// @todo Please modify the following code to remove attributes that should not be searched.
+
+		$criteria=new CDbCriteria;
+
+		$criteria->compare('id',$this->id);
+		$criteria->compare('sezione',$this->sezione,true);
+		$criteria->compare('idsezione',$this->idsezione);
+		$criteria->compare('allegato',$this->allegato,true);
+		$criteria->compare('nome',$this->nome,true);
+		$criteria->compare('descrizione',$this->descrizione,true);
+		$criteria->compare('data_inserimento',$this->data_inserimento,true);
+		$criteria->compare('privato',$this->privato,true);
+		$criteria->compare('visibile',$this->visibile,true);
+		$criteria->addCondition("sezione=$sez");
+		$criteria->addCondition("idsezione=$idsez");
+
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+		));
+	}
+
+	public function searchByMezzo($sez,$idsez)
+	{
+		// @todo Please modify the following code to remove attributes that should not be searched.
+
+		$criteria=new CDbCriteria;
+
+		$criteria->compare('id',$this->id);
+		$criteria->compare('sezione',$this->sezione,true);
+		$criteria->compare('idsezione',$this->idsezione);
+		$criteria->compare('allegato',$this->allegato,true);
+		$criteria->compare('nome',$this->nome,true);
+		$criteria->compare('descrizione',$this->descrizione,true);
+		$criteria->compare('data_inserimento',$this->data_inserimento,true);
+		$criteria->compare('privato',$this->privato,true);
+		$criteria->compare('visibile',$this->visibile,true);
+		$criteria->addCondition("sezione=$sez");
+		$criteria->addCondition("idsezione=$idsez");
+
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+		));
+	}
+
+	public function searchByClienti($sez,$idsez)
+	{
+		// @todo Please modify the following code to remove attributes that should not be searched.
+
+		$criteria=new CDbCriteria;
+
+		$criteria->compare('id',$this->id);
+		$criteria->compare('sezione',$this->sezione,true);
+		$criteria->compare('idsezione',$this->idsezione);
+		$criteria->compare('allegato',$this->allegato,true);
+		$criteria->compare('nome',$this->nome,true);
+		$criteria->compare('descrizione',$this->descrizione,true);
+		$criteria->compare('data_inserimento',$this->data_inserimento,true);
+		$criteria->compare('privato',$this->privato,true);
+		$criteria->compare('visibile',$this->visibile,true);
+		$criteria->addCondition("sezione=$sez");
+		$criteria->addCondition("idsezione=$idsez");
+
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+		));
+	}
+
+	public function searchByContrattiTop($sez,$idsez)
 	{
 		// @todo Please modify the following code to remove attributes that should not be searched.
 

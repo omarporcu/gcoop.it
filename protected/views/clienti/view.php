@@ -12,6 +12,8 @@ $this->menu=array(
 	array('label'=>'Nuovo Cliente', 'url'=>array('create')),
 	array('label'=>'Modifica Cliente', 'url'=>array('update', 'id'=>$model->id)),
 	array('label'=>'Elimina Cliente', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>false,'itemOptions'=>array('class'=>'divider')),
+	array('label'=>'Aggiungi Fattura', 'url'=>array('/allegati/create?sez=clienti&idsez='.$_GET['id'])),
 	//array('label'=>'Manage Clienti', 'url'=>array('admin')),
 );
 ?>
@@ -48,3 +50,39 @@ $this->menu=array(
 
 <?php echo $this->renderPartial('_view', array('model'=>$model)); ?>
 
+	<table style="margin-bottom: 0px !important; margin-top: 2em !important;">
+		<tr>
+			<td colspan="2">
+				<div class="portlet-decoration">
+					<div class="portlet-title">
+						Fatture
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+	
+<?php $this->widget('zii.widgets.grid.CGridView', array(
+	'ajaxUpdate'=>'ajaxContent',
+	//'selectionChanged'=>"function(id){window.location='" . Yii::app()->urlManager->createUrl('allegati/view?sez=documenti&idsez='.$model->id, array('id'=>'')) . "' + $.fn.yiiGridView.getSelection(id);}",
+	'selectionChanged'=>"function(id){window.location='" . Yii::app()->urlManager->createUrl('../allegati/view?sez=clienti&idsez='.$model->id) . "' + $.fn.yiiGridView.getSelection(id);}",
+		'id'=>'allegati-grid',
+	//'summaryText'=>CHtml::link('[+] Aggiungi Allegato','../allegati/create?an='.$_GET['id'].'&ut='.$nomecognome,array('class'=>'')),
+	'summaryText'=>CHtml::link('[+] Aggiungi Fattura','../allegati/create?sez=clienti&idsez='.$_GET['id'],array('class'=>'')),
+	'dataProvider'=>Allegati::model()->searchByClienti('"clienti"',$_GET['id']),
+	//'filter'=>$model,
+	'columns'=>array(
+		//'id',
+		//'sezione',
+		//'idsezione',
+		'allegato',
+		'nome',
+		'descrizione',
+		'data_inserimento',
+		//'privato',
+		//'visibile',
+		/*array(
+			'class'=>'CButtonColumn',
+		),*/
+	),
+)); ?>

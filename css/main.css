@@ -90,22 +90,31 @@ div.flash-error, div.flash-notice, div.flash-success
 div.flash-error
 {
 	background:#FBE3E4;
-	color:#8a1f11;
+	color:#555555;
 	border-color:#FBC2C4;
+}
+table.flash-error
+{
+	background:#FBE3E4;
+	color:#555555;
+	border-color:#FBC2C4;
+	padding:.8em;
+	margin-bottom:1em;
+	border:2px solid #FBC2C4;
 }
 
 div.flash-notice
 {
 	background:#FFF6BF;
-	color:#514721;
+	color:#555555;
 	border-color:#FFD324;
 }
 
 div.flash-success
 {
-	background:#E6EFC2;
-	color:#264409;
-	border-color:#C6D880;
+	background:#C5FBBD;
+	color:#555555;
+	border-color:#76C376;
 }
 
 div.flash-error a
@@ -226,4 +235,23 @@ div.search-form
 .operations li a:hover
 {
 	background: #80CFFF;
+}
+
+.post .title
+{
+	font-size: 1.5em;
+	border-bottom: 1px solid #C9E0ED;
+}
+
+.post .title a
+{
+	color: #555;
+	text-decoration: none;
+}
+
+.post .nav
+{
+	-moz-border-radius:7px;
+	padding: 5px;
+	background: #EFFDFF;
 }

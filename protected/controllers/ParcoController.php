@@ -36,7 +36,7 @@ class ParcoController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin','delete','scadenze','print'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -144,6 +144,18 @@ class ParcoController extends Controller
 		));
 	}
 
+	public function actionScadenze()
+	{
+		$model=new Parco('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['Parco']))
+			$model->attributes=$_GET['Parco'];
+
+		$this->render('scadenze',array(
+			'model'=>$model,
+		));
+	}
+
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
@@ -171,4 +183,28 @@ class ParcoController extends Controller
 			Yii::app()->end();
 		}
 	}
+	
+	public function actionPrint()
+	{
+
+		$model=new Parco;
+		$model->unsetAttributes();
+		
+		$this->widget('ext.pdffactory.EPdfFactoryHeart',array(
+			'title'=>'Elenco Mezzi',
+			'dataProvider'=>$model->search(),
+			'filter'=>$model,
+			'columns'=>array(
+				'id',
+				'marca',
+				'modello',
+				'targa',
+				'assicurazione',
+				'scadenza_assicurazione',
+				'scadenza_bollo',
+			)
+		));
+
+	}	
+	
 }

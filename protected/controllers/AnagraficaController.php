@@ -32,7 +32,7 @@ class AnagraficaController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','comuneAutocomplete'),
+				'actions'=>array('create','update','comuneAutocomplete','print'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -198,7 +198,30 @@ class AnagraficaController extends Controller
 	    echo CJSON::encode($riga);
     	Yii::app()->end();
 	
-	}
-	
+	}	
+
+	public function actionPrint()
+	{
+
+		$model=new Anagrafica;
+		$model->unsetAttributes();
+		
+		$this->widget('ext.pdffactory.EPdfFactoryHeart',array(
+			'title'=>'Elenco Anagrafiche',
+			'dataProvider'=>$model->search(),
+			'filter'=>$model,
+			'columns'=>array(
+				'id',
+				'nome',
+				'cognome',
+				'data_nascita',
+				'comune_residenza',
+				'id_societa',
+				'telefono',
+				'cellulare'
+			)
+		));
+
+	}	
 
 }

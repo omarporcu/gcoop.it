@@ -29,15 +29,16 @@
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
-				array('label'=>'Home', 'url'=>array('/site/index')),
+				array('label'=>'Home', 'url'=>array('/scadenze/index')),
 				array('label'=>'Anagrafica', 'url'=>array('/anagrafica')),
 				array('label'=>'Società', 'url'=>array('/societa')),
 				array('label'=>'Mezzi', 'url'=>array('/parco')),
 				array('label'=>'Contratti', 'url'=>array('/contrattiTop')),
-				array('label'=>'Prestiti', 'url'=>array('/prestiti')),
+				/*array('label'=>'Prestiti', 'url'=>array('/prestiti')),*/
 				array('label'=>'Fatture', 'url'=>array('/fatture')),
 				array('label'=>'Clienti', 'url'=>array('/clienti')),
 				array('label'=>'Fornitori', 'url'=>array('/fornitori')),
+				array('label'=>'Conteggi', 'url'=>array('/conteggi_main')),
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),
@@ -46,6 +47,7 @@
 	<?php if(isset($this->breadcrumbs)):?>
 		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
 			'links'=>$this->breadcrumbs,
+			'homeLink'=>CHtml::link('Home',array('scadenze/index'))
 		)); ?><!-- breadcrumbs -->
 	<?php endif?>
 

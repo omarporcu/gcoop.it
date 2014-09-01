@@ -108,7 +108,7 @@ class Conteggi extends CActiveRecord
 		));
 	}
 	
-	public function searchByAnagrafica($prop)
+	public function searchByAnagrafica($prop,$porp,$id)
 	{
 		// Warning: Please modify the following code to remove attributes that
 		// should not be searched.
@@ -127,7 +127,7 @@ class Conteggi extends CActiveRecord
 		$criteria->compare('totale',$this->totale,true);
 		$criteria->compare('note',$this->note,true);
 
-		$criteria->addCondition("anagrafica='$prop'");
+		$criteria->addCondition("anagrafica='$prop' OR anagrafica='$porp' OR anagrafica='$id'");
 		
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

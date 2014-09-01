@@ -3,6 +3,7 @@
 /* @var $model Anagrafica */
 
 $nomecognome = $model->cognome.' '.$model->nome;
+$cognomenome = $model->nome.' '.$model->cognome;
 
 $this->breadcrumbs=array(
 	'Anagrafica'=>array('index'),
@@ -167,10 +168,10 @@ $this->menu=array(
 	
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'ajaxUpdate'=>'ajaxContent',
-	'selectionChanged'=>"function(id){window.location='" . Yii::app()->urlManager->createUrl('conteggi/view', array('id'=>'')) . "' + $.fn.yiiGridView.getSelection(id);}",
+	'selectionChanged'=>"function(id){window.location='" . Yii::app()->urlManager->createUrl('conteggi_main/view', array('id'=>'')) . "' + $.fn.yiiGridView.getSelection(id);}",
 	'id'=>'conteggi-grid',
-	'summaryText'=>CHtml::link('[+] Aggiungi Conteggio',Yii::app()->baseUrl.'/conteggi/create?an='.$model->id.'&ut='.$nomecognome,array('class'=>'')),
-	'dataProvider'=>Conteggi::model()->searchByAnagrafica($nomecognome),
+	'summaryText'=>CHtml::link('[+] Aggiungi Conteggio',Yii::app()->baseUrl.'/conteggi_main/create?an='.$model->id.'&ut='.$nomecognome,array('class'=>'')),
+	'dataProvider'=>Conteggi::model()->searchByAnagrafica($nomecognome,$cognomenome,$model->id),
 	//'filter'=>Conteggi::model(),
 	'columns'=>array(
 		'mese',

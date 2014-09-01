@@ -10,6 +10,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	//array('label'=>'List Clienti', 'url'=>array('index')),
 	array('label'=>'Nuovo Cliente', 'url'=>array('create')),
+	array('label'=>'Stampa Clienti', 'url'=>array('print')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

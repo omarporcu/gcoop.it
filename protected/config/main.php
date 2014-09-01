@@ -27,6 +27,9 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+		
+		'ext.pdffactory.*',
+		'application.pdf.docs.*',
 	),
 
 	'modules'=>array(
@@ -56,6 +59,22 @@ return array(
 			'class'=>'bootstrap.components.Bootstrap',
 		),
 		//--*/
+		
+		'pdfFactory'=>array(
+			'class'=>'ext.pdffactory.EPdfFactory',
+			'cacheHours'=>5,
+			'pdfPath'=>'application.files.pdf',
+			'tcpdfOptions'=>array(
+				/* DEFAULT
+				'format'=>'A4',
+				'orientation'=>'P', //P=portrait L=landscape
+				'unit'=>'mm', //measure unit: mm, cm, inch, or point
+				'unicode'=>true,
+				'encoding'=>'UTF-8',
+				'diskcache'=>false,
+				'pdfa'=>false,*/
+			)
+		),
 		
 		'user'=>array(
 			// enable cookie-based authentication
@@ -89,7 +108,16 @@ return array(
 			'charset' => 'utf8',
 		),
 		
-
+		//DEMO
+		/*
+		'db'=>array(
+			'connectionString' => 'mysql:host=62.149.150.192;dbname=Sql674260_5',
+			'emulatePrepare' => true,
+			'username' => 'Sql674260',
+			'password' => 'ba02172f',
+			'charset' => 'utf8',
+		),
+		*/
 		//LIVE_OLD
 		/*
 		'db'=>array(
@@ -100,7 +128,6 @@ return array(
 			'charset' => 'utf8',
 		),
 		*/
-
 		//LIVE
 		/*
 		'db'=>array(

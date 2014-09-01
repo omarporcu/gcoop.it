@@ -32,7 +32,7 @@ class ClientiController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update', 'dynamiccities'),
+				'actions'=>array('create','update', 'dynamiccities','print'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -189,4 +189,29 @@ class ClientiController extends Controller
 			Yii::app()->end();
 		}
 	}
+	
+	public function actionPrint()
+	{
+
+		$model=new Clienti;
+		$model->unsetAttributes();
+		
+		$this->widget('ext.pdffactory.EPdfFactoryHeart',array(
+			'title'=>'Elenco Clienti',
+			'dataProvider'=>$model->search(),
+			'filter'=>$model,
+			'columns'=>array(
+				'id',
+				'ragione_sociale',
+				'sede_operativa',
+				'amministratore',
+				'comune',
+				'telefono',
+				'email',
+				'fax',
+			)
+		));
+
+	}	
+	
 }

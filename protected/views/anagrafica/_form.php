@@ -77,6 +77,11 @@
 				?>
 				<?php echo $form->error($model,'id_societa'); ?>
 			</td>
+			<td>
+				<?php echo $form->labelEx($model,'mansione'); ?>
+				<?php echo $form->textField($model,'mansione',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($model,'mansione'); ?>
+			</td>
 		</tr>
 		<tr>
 			<td colspan="2">

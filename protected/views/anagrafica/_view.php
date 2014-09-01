@@ -57,6 +57,10 @@
 				<?php echo $form->labelEx($model,'id_societa'); ?>
 				<?php echo CHtml::encode($model->id_societa); ?>
 			</td>
+			<td>
+				<?php echo $form->labelEx($model,'mansione'); ?>
+				<?php echo CHtml::encode($model->mansione); ?>
+			</td>
 		</tr>
 		<tr>
 			<td colspan="2">

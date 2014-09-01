@@ -17,6 +17,7 @@
  * @property string $proprietario
  * @property string $assegnatario
  * @property string $utente
+ * @property string $regione
  * @property string $note
  */
 class Parco extends CActiveRecord
@@ -37,11 +38,11 @@ class Parco extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('marca, modello, prezzo, rata, targa, proprietario, assegnatario, utente, assicurazione', 'length', 'max'=>45),
+			array('marca, modello, prezzo, rata, targa, proprietario, assegnatario, utente, assicurazione, regione', 'length', 'max'=>45),
 			array('immatricolazione, scadenza_assicurazione, scadenza_bollo, note', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, marca, modello, prezzo, rata, targa, immatricolazione, assicurazione, scadenza_assicurazione, scadenza_bollo, proprietario, assegnatario, utente, note', 'safe', 'on'=>'search'),
+			array('id, marca, modello, prezzo, rata, targa, immatricolazione, assicurazione, scadenza_assicurazione, scadenza_bollo, proprietario, assegnatario, utente, regione, note', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -75,6 +76,7 @@ class Parco extends CActiveRecord
 			'proprietario' => 'Proprietario',
 			'assegnatario' => 'Assegnatario',
 			'utente' => 'Utente',
+			'regione' => 'Regione',			
 			'note' => 'Note',
 		);
 	}
@@ -110,10 +112,45 @@ class Parco extends CActiveRecord
 		$criteria->compare('proprietario',$this->proprietario,true);
 		$criteria->compare('assegnatario',$this->assegnatario,true);
 		$criteria->compare('utente',$this->utente,true);
+		$criteria->compare('regione',$this->regione,true);		
 		$criteria->compare('note',$this->note,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+		));
+	}
+
+	public function searchScadenze()
+	{
+		// @todo Please modify the following code to remove attributes that should not be searched.
+
+		$criteria=new CDbCriteria;
+		
+		$now=new CDbExpression("NOW()");
+		
+		$criteria->compare('id',$this->id);
+		$criteria->compare('marca',$this->marca,true);
+		$criteria->compare('modello',$this->modello,true);
+		$criteria->compare('prezzo',$this->prezzo,true);
+		$criteria->compare('rata',$this->rata,true);
+		$criteria->compare('targa',$this->targa,true);
+		$criteria->compare('immatricolazione',$this->immatricolazione,true);
+		$criteria->compare('assicurazione',$this->assicurazione,true);
+		$criteria->compare('scadenza_assicurazione',$this->scadenza_assicurazione,true);
+		$criteria->compare('scadenza_bollo',$this->scadenza_bollo,true);
+		$criteria->compare('proprietario',$this->proprietario,true);
+		$criteria->compare('assegnatario',$this->assegnatario,true);
+		$criteria->compare('utente',$this->utente,true);
+		$criteria->compare('regione',$this->regione,true);		
+		$criteria->compare('note',$this->note,true);
+		
+		$criteria->addCondition('scadenza_assicurazione > '.$now);
+		
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+			'sort'=>array(
+				'defaultOrder'=>'scadenza_assicurazione ASC',
+			)
 		));
 	}
 

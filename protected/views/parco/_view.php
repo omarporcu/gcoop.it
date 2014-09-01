@@ -65,6 +65,12 @@
 			</td>
 		</tr>
 		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'regione'); ?>
+				<?php echo CHtml::encode($model->regione); ?>
+			</td>
+		</tr>
+		<tr>
 			<td colspan="2">
 				<div class="portlet-decoration">
 					<div class="portlet-title">
