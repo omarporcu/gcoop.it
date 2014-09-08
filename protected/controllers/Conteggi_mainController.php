@@ -32,7 +32,7 @@ class Conteggi_mainController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','getAnag','anagraficaAutocomplete','print'),
+				'actions'=>array('create','update','getAnag','anagraficaAutocomplete','anagAutocomp','print'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -232,7 +232,71 @@ class Conteggi_mainController extends Controller
 	
 	}
 
-	 public function actionAnagraficaAutocomplete()
+	public function actionAnagAutocomp()
+	{
+		$riga=array();
+		
+		if (isset($_GET['term']))
+		{
+			$q = new CDbCriteria(
+				array(
+					'condition'=>"nome LIKE :nome OR cognome LIKE :nome",
+					'params'=>array(':nome'=>'%'.$_GET['term'].'%'),	
+				)
+			);
+			
+			$t = new CDbCriteria(
+				array(
+					'condition'=>"assegnatario LIKE :nome",
+					'params'=>array(':nome'=>'%'.$_GET['term'].'%'),
+				)
+			);
+			
+			$targa=Mezzi::model()->findAll($t);
+			
+			foreach ($targa as $rt) {
+				//	$tar[]=array($rt['targa']);
+				$tar[]=$rt['targa'];
+			}
+			
+			$anagrafica=Anagrafica::model()->findAll($q);
+			
+			foreach ($anagrafica as $r) 
+			{
+				$riga[]=array(
+					'id'=>$r['id'],
+	                'label'=>ltrim(rtrim($r['nome']))." ".ltrim(rtrim($r['cognome'])),
+	                'value'=>ltrim(rtrim($r['nome']))." ".ltrim(rtrim($r['cognome'])),
+	                'citta'=>$r['comune_residenza'],
+	                'societa'=>$r['id_societa'],
+	                'mansione'=>$r['mansione'],
+	                'targa'=>$tar,
+	                //'targa'=>Mezzi::model()->findAll($t),
+				);
+								
+				/*$targa=Mezzi::model()->findAll($t);
+				
+				foreach ($targa as $rt) 
+				{
+				
+					array_push($riga, array(
+						
+						'targa'=>$rt['targa'],
+						
+					));
+					
+				}*/
+				
+			}
+		
+		}
+
+	    echo CJSON::encode($riga);
+    	Yii::app()->end();
+		
+	}
+
+	public function actionAnagraficaAutocomplete()
 	{
 		$riga=array();
 		$res=array();
@@ -243,11 +307,15 @@ class Conteggi_mainController extends Controller
 			$command =Yii::app()->db->createCommand($qtxt);
 			$command->bindValue(":nome", '%'.$_GET['term'].'%', PDO::PARAM_STR);
 			$res=$command->queryAll();
-									
 		}
 			
 		foreach ($res as $r)
         {
+                $qtarga="SELECT targa FROM tbl_mezzi WHERE assegnatario LIKE :nome";
+                $ctarga=Yii::app()->db->createCommand($qtarga);
+				$ctarga->bindValue(":nome", '%'.$_GET['term'].'%', PDO::PARAM_STR);
+				$rtarga=$command->queryAll();
+
                 $riga[] = array(
                         'id'=>$r['id'],
                         'label'=>ltrim(rtrim($r['nome']))." ".ltrim(rtrim($r['cognome'])),
@@ -255,8 +323,8 @@ class Conteggi_mainController extends Controller
                         'citta'=>$r['comune_residenza'],
                         'societa'=>$r['id_societa'],
                         'mansione'=>$r['mansione'],
-//                        'targa'=>Mezzi::model()->findByPk($r['nome']." ".$r['cognome']),
-                        'targa'=>Mezzi::model()->findByPk($r['cognome']." ".$r['nome']),
+						//'targa'=>Mezzi::model()->findByPk($r['nome']." ".$r['cognome']),
+                        //'targa'=>array('cognome'=>$r['cognome'],'nome'=>$r['nome'])),
                 );
         }
 		

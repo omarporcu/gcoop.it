@@ -71,20 +71,24 @@
 					    	'placeholder'=>'Autocompleta Anagrafica',
 							'size'=>45,	
 						),
-						'source'=>$this->createUrl('conteggi_main/anagraficaAutocomplete'),
-						//'source'=>$this->createUrl('conteggi_main/getAnag'),
+						//'source'=>$this->createUrl('conteggi_main/anagraficaAutocomplete'),
+						'source'=>$this->createUrl('conteggi_main/anagAutocomp'),
 						'options'=>array(
 					        'showAnim'=>'fold',
-					        'select'=>"js:function(event, ui) {
-										jQuery('#Conteggi_main_anagrafica').val(ui.item.nome);
-										jQuery('#Conteggi_main_citta').val(ui.item.citta);
-										jQuery('#Conteggi_main_societa').val(ui.item.societa);
-										jQuery('#Conteggi_main_mansione').val(ui.item.mansione);
-										jQuery('#Conteggi_main_targa').val(ui.item.targa);
+							'select'=>"js:function(event, ui) {
+										$('#Conteggi_main_anagrafica').val(ui.item.nome);
+										$('#Conteggi_main_citta').val(ui.item.citta);
+										$('#Conteggi_main_societa').val(ui.item.societa);
+										$('#Conteggi_main_mansione').val(ui.item.mansione);
+										
+										$('#Conteggi_main_targa').find('option').remove().end();
+										var targhe = ui.item.targa;
+										$.each(targhe,function(k,v){
+											$('#Conteggi_main_targa').append($('<option>',{text: v}));	
+										})
+										
 					                  }",
-							
-					    ),
-					))
+					)))
 				?>
 			</td>
 			<td>
