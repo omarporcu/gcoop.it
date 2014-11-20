@@ -3434,3 +3434,169 @@ Stack trace:
 REQUEST_URI=/gcoop.it/conteggi_main/anagAutocomp?term=corr
 HTTP_REFERER=http://localhost/gcoop.it/conteggi_main
 ---
+2014/09/29 11:22:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "s".' in /private/var/www/gcoop.it/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /private/var/www/gcoop.it/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('s')
+#1 /private/var/www/gcoop.it/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /private/var/www/gcoop.it/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/gcoop.it/s
+---
+2014/09/29 12:06:11 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Non si ha l'autorizzazione ad effettuare l'operazione.' in /private/var/www/gcoop.it/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /private/var/www/gcoop.it/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Non si ha l'aut...')
+#1 /private/var/www/gcoop.it/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /private/var/www/gcoop.it/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /private/var/www/gcoop.it/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /private/var/www/gcoop.it/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /private/var/www/gcoop.it/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /private/var/www/gcoop.it/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /private/var/www/gcoop.it/yii/framework/web/CWebApplication.php(282): CController->run('anagAutocomp')
+#8 /private/var/www/gcoop.it/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('cedolini/anagAu...')
+#9 /private/var/www/gcoop.it/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /private/var/www/gcoop.it/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/gcoop.it/cedolini/anagAutocomp?term=corr
+HTTP_REFERER=http://localhost/gcoop.it/cedolini/create
+---
+2014/09/29 12:06:15 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Non si ha l'autorizzazione ad effettuare l'operazione.' in /private/var/www/gcoop.it/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /private/var/www/gcoop.it/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Non si ha l'aut...')
+#1 /private/var/www/gcoop.it/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /private/var/www/gcoop.it/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /private/var/www/gcoop.it/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /private/var/www/gcoop.it/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /private/var/www/gcoop.it/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /private/var/www/gcoop.it/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /private/var/www/gcoop.it/yii/framework/web/CWebApplication.php(282): CController->run('anagAutocomp')
+#8 /private/var/www/gcoop.it/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('cedolini/anagAu...')
+#9 /private/var/www/gcoop.it/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /private/var/www/gcoop.it/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/gcoop.it/cedolini/anagAutocomp?term=al
+HTTP_REFERER=http://localhost/gcoop.it/cedolini/create
+---
+2014/09/29 12:06:15 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Non si ha l'autorizzazione ad effettuare l'operazione.' in /private/var/www/gcoop.it/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /private/var/www/gcoop.it/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'Non si ha l'aut...')
+#1 /private/var/www/gcoop.it/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /private/var/www/gcoop.it/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /private/var/www/gcoop.it/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /private/var/www/gcoop.it/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /private/var/www/gcoop.it/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /private/var/www/gcoop.it/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /private/var/www/gcoop.it/yii/framework/web/CWebApplication.php(282): CController->run('anagAutocomp')
+#8 /private/var/www/gcoop.it/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('cedolini/anagAu...')
+#9 /private/var/www/gcoop.it/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /private/var/www/gcoop.it/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/gcoop.it/cedolini/anagAutocomp?term=alb
+HTTP_REFERER=http://localhost/gcoop.it/cedolini/create
+---
+2014/10/31 18:29:27 [error] [exception.CException] exception 'CException' with message 'Cedolini and its behaviors do not have a method or closure named "searchByAnagrafica".' in /private/var/www/gcoop.it/yii/framework/base/CComponent.php:266
+Stack trace:
+#0 /private/var/www/gcoop.it/yii/framework/db/ar/CActiveRecord.php(227): CComponent->__call('searchByAnagraf...', Array)
+#1 /private/var/www/gcoop.it/protected/views/anagrafica/view.php(208): CActiveRecord->__call('searchByAnagraf...', Array)
+#2 /private/var/www/gcoop.it/protected/views/anagrafica/view.php(208): Cedolini->searchByAnagrafica('MARRA  GIUSEPPE...', 'GIUSEPPE  MARRA...', '5')
+#3 /private/var/www/gcoop.it/yii/framework/web/CBaseController.php(126): require('/private/var/ww...')
+#4 /private/var/www/gcoop.it/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/private/var/ww...', Array, true)
+#5 /private/var/www/gcoop.it/yii/framework/web/CController.php(869): CBaseController->renderFile('/private/var/ww...', Array, true)
+#6 /private/var/www/gcoop.it/yii/framework/web/CController.php(782): CController->renderPartial('view', Array, true)
+#7 /private/var/www/gcoop.it/protected/controllers/AnagraficaController.php(56): CController->render('view', Array)
+#8 [internal function]: AnagraficaController->actionView('5')
+#9 /private/var/www/gcoop.it/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(AnagraficaController), Array)
+#10 /private/var/www/gcoop.it/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(AnagraficaController), Object(ReflectionMethod), Array)
+#11 /private/var/www/gcoop.it/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#12 /private/var/www/gcoop.it/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#13 /private/var/www/gcoop.it/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#14 /private/var/www/gcoop.it/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#15 /private/var/www/gcoop.it/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#16 /private/var/www/gcoop.it/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#17 /private/var/www/gcoop.it/yii/framework/web/CController.php(291): CFilterChain->run()
+#18 /private/var/www/gcoop.it/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 /private/var/www/gcoop.it/yii/framework/web/CWebApplication.php(282): CController->run('view')
+#20 /private/var/www/gcoop.it/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('anagrafica/view')
+#21 /private/var/www/gcoop.it/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#22 /private/var/www/gcoop.it/index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/gcoop.it/anagrafica/5
+HTTP_REFERER=http://localhost/gcoop.it/anagrafica
+---
+2014/10/31 18:32:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Il sistema non ha potuto trovare l'azione "create" richiesta.' in /private/var/www/gcoop.it/yii/framework/web/CController.php:483
+Stack trace:
+#0 /private/var/www/gcoop.it/yii/framework/web/CController.php(270): CController->missingAction('create')
+#1 /private/var/www/gcoop.it/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#2 /private/var/www/gcoop.it/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('cedolini/create')
+#3 /private/var/www/gcoop.it/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /private/var/www/gcoop.it/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/gcoop.it/cedolini/create?an=5&ut=MARRA%20%20GIUSEPPE
+HTTP_REFERER=http://localhost/gcoop.it/anagrafica/5
+---
+2014/10/31 18:32:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Il sistema non ha potuto trovare l'azione "create" richiesta.' in /private/var/www/gcoop.it/yii/framework/web/CController.php:483
+Stack trace:
+#0 /private/var/www/gcoop.it/yii/framework/web/CController.php(270): CController->missingAction('create')
+#1 /private/var/www/gcoop.it/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#2 /private/var/www/gcoop.it/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('conteggi_main/c...')
+#3 /private/var/www/gcoop.it/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /private/var/www/gcoop.it/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/gcoop.it/conteggi_main/create?an=5&ut=MARRA%20%20GIUSEPPE
+HTTP_REFERER=http://localhost/gcoop.it/anagrafica/5
+---
+2014/11/14 17:07:23 [error] [php] Undefined variable: data (/private/var/www/gcoop.it/protected/views/cedolini/_view.php:146)
+Stack trace:
+#0 /private/var/www/gcoop.it/yii/framework/web/CController.php(869): CedoliniController->renderFile()
+#1 /private/var/www/gcoop.it/protected/views/cedolini/view.php(21): CedoliniController->renderPartial()
+#2 /private/var/www/gcoop.it/yii/framework/web/CBaseController.php(126): require()
+#3 /private/var/www/gcoop.it/yii/framework/web/CBaseController.php(95): CedoliniController->renderInternal()
+#4 /private/var/www/gcoop.it/yii/framework/web/CController.php(869): CedoliniController->renderFile()
+#5 /private/var/www/gcoop.it/yii/framework/web/CController.php(782): CedoliniController->renderPartial()
+#6 /private/var/www/gcoop.it/protected/controllers/CedoliniController.php(56): CedoliniController->render()
+#7 unknown(0): CedoliniController->actionView()
+#8 /private/var/www/gcoop.it/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#9 /private/var/www/gcoop.it/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#10 /private/var/www/gcoop.it/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#11 /private/var/www/gcoop.it/yii/framework/web/filters/CFilterChain.php(133): CedoliniController->runAction()
+#12 /private/var/www/gcoop.it/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#13 /private/var/www/gcoop.it/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#14 /private/var/www/gcoop.it/yii/framework/web/filters/CInlineFilter.php(58): CedoliniController->filterAccessControl()
+#15 /private/var/www/gcoop.it/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#16 /private/var/www/gcoop.it/yii/framework/web/CController.php(291): CFilterChain->run()
+#17 /private/var/www/gcoop.it/yii/framework/web/CController.php(265): CedoliniController->runActionWithFilters()
+#18 /private/var/www/gcoop.it/yii/framework/web/CWebApplication.php(282): CedoliniController->run()
+#19 /private/var/www/gcoop.it/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#20 /private/var/www/gcoop.it/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#21 /private/var/www/gcoop.it/index.php(13): CWebApplication->run()
+REQUEST_URI=/gcoop.it/cedolini/1
+in /private/var/www/gcoop.it/protected/views/cedolini/_view.php (146)
+in /private/var/www/gcoop.it/protected/views/cedolini/view.php (21)
+in /private/var/www/gcoop.it/protected/controllers/CedoliniController.php (56)
+2014/11/14 17:08:23 [error] [php] Undefined variable: data (/private/var/www/gcoop.it/protected/views/cedolini/_view.php:128)
+Stack trace:
+#0 /private/var/www/gcoop.it/yii/framework/web/CController.php(869): CedoliniController->renderFile()
+#1 /private/var/www/gcoop.it/protected/views/cedolini/view.php(21): CedoliniController->renderPartial()
+#2 /private/var/www/gcoop.it/yii/framework/web/CBaseController.php(126): require()
+#3 /private/var/www/gcoop.it/yii/framework/web/CBaseController.php(95): CedoliniController->renderInternal()
+#4 /private/var/www/gcoop.it/yii/framework/web/CController.php(869): CedoliniController->renderFile()
+#5 /private/var/www/gcoop.it/yii/framework/web/CController.php(782): CedoliniController->renderPartial()
+#6 /private/var/www/gcoop.it/protected/controllers/CedoliniController.php(56): CedoliniController->render()
+#7 unknown(0): CedoliniController->actionView()
+#8 /private/var/www/gcoop.it/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#9 /private/var/www/gcoop.it/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#10 /private/var/www/gcoop.it/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#11 /private/var/www/gcoop.it/yii/framework/web/filters/CFilterChain.php(133): CedoliniController->runAction()
+#12 /private/var/www/gcoop.it/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#13 /private/var/www/gcoop.it/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#14 /private/var/www/gcoop.it/yii/framework/web/filters/CInlineFilter.php(58): CedoliniController->filterAccessControl()
+#15 /private/var/www/gcoop.it/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#16 /private/var/www/gcoop.it/yii/framework/web/CController.php(291): CFilterChain->run()
+#17 /private/var/www/gcoop.it/yii/framework/web/CController.php(265): CedoliniController->runActionWithFilters()
+#18 /private/var/www/gcoop.it/yii/framework/web/CWebApplication.php(282): CedoliniController->run()
+#19 /private/var/www/gcoop.it/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#20 /private/var/www/gcoop.it/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#21 /private/var/www/gcoop.it/index.php(13): CWebApplication->run()
+REQUEST_URI=/gcoop.it/cedolini/1
+in /private/var/www/gcoop.it/protected/views/cedolini/_view.php (128)
+in /private/var/www/gcoop.it/protected/views/cedolini/view.php (21)
+in /private/var/www/gcoop.it/protected/controllers/CedoliniController.php (56)

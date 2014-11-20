@@ -7,7 +7,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Home', 'url'=>array('/site/index')),
+	array('label'=>'Home', 'url'=>array('/scadenze/index')),
 );
 ?>
 

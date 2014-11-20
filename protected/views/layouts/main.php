@@ -39,6 +39,7 @@
 				array('label'=>'Clienti', 'url'=>array('/clienti')),
 				array('label'=>'Fornitori', 'url'=>array('/fornitori')),
 				array('label'=>'Conteggi', 'url'=>array('/conteggi_main')),
+				array('label'=>'Cedolini', 'url'=>array('/cedolini')),
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),

@@ -170,7 +170,7 @@ $this->menu=array(
 	'ajaxUpdate'=>'ajaxContent',
 	'selectionChanged'=>"function(id){window.location='" . Yii::app()->urlManager->createUrl('conteggi_main/view', array('id'=>'')) . "' + $.fn.yiiGridView.getSelection(id);}",
 	'id'=>'conteggi-grid',
-	'summaryText'=>CHtml::link('[+] Aggiungi Conteggio',Yii::app()->baseUrl.'/conteggi_main/create?an='.$model->id.'&ut='.$nomecognome,array('class'=>'')),
+	//'summaryText'=>CHtml::link('[+] Aggiungi Conteggio',Yii::app()->baseUrl.'/conteggi_main/create?an='.$model->id.'&ut='.$nomecognome,array('class'=>'')),
 	'dataProvider'=>Conteggi::model()->searchByAnagrafica($nomecognome,$cognomenome,$model->id),
 	//'filter'=>Conteggi::model(),
 	'columns'=>array(
@@ -188,3 +188,38 @@ $this->menu=array(
 	),
 )); ?>
 	
+	<table style="margin-bottom: 0px !important; margin-top: 1.4em !important;">
+		<tr>
+			<td colspan="2">
+				<div class="portlet-decoration">
+					<div class="portlet-title">
+						Cedolini
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+	
+<?php $this->widget('zii.widgets.grid.CGridView', array(
+	'ajaxUpdate'=>'ajaxContent',
+	'selectionChanged'=>"function(id){window.location='" . Yii::app()->urlManager->createUrl('cedolini/view', array('id'=>'')) . "' + $.fn.yiiGridView.getSelection(id);}",
+	'id'=>'cedolini-grid',
+	//'summaryText'=>CHtml::link('[+] Aggiungi Cedolino',Yii::app()->baseUrl.'/cedolini/create?an='.$model->id.'&ut='.$nomecognome,array('class'=>'')),
+	'dataProvider'=>Cedolini::model()->searchByAnagrafica($nomecognome,$cognomenome,$model->id),
+	//'filter'=>Conteggi::model(),
+	'columns'=>array(
+		//'id',
+		//'anagrafica',
+		'mese',
+		'anno',
+		'g_lavorati',
+		'importo',
+		/*
+		'data',
+		'note',
+		array(
+			'class'=>'CButtonColumn',
+		),*/
+	),
+)); ?>
+
