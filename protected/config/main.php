@@ -100,14 +100,14 @@ return array(
 		
 		//LOCAL
 		
-		'db'=>array(
+		/*'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=gcoopit95679',
 			'emulatePrepare' => true,
 			'username' => 'root',
 			'password' => 'root',
 			'charset' => 'utf8',
 		),
-		
+		*/
 		//DEMO
 		/*
 		'db'=>array(
@@ -118,17 +118,17 @@ return array(
 			'charset' => 'utf8',
 		),
 		*/
-		//LIVE_OLD
-		/*
+		//LIVE
+		
 		'db'=>array(
-			'connectionString' => 'mysql:host=62.149.150.148;dbname=Sql526871_5',
+			'connectionString' => 'mysql:host=62.149.150.226;dbname=Sql806743_1',
 			'emulatePrepare' => true,
-			'username' => 'Sql526871',
-			'password' => '68f9a750',
+			'username' => 'Sql806743',
+			'password' => '78b8jeq00u',
 			'charset' => 'utf8',
 		),
-		*/
-		//LIVE
+		
+		//LIVE_OLD
 		/*
 		'db'=>array(
 			'connectionString' => 'mysql:host=sql.gcoop.it;dbname=gcoopit95679',
