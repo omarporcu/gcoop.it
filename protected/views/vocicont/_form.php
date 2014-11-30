@@ -59,7 +59,7 @@
 						'Esso Card'=>'Esso Card',
 						'Bollo Mezzo'=>'Bollo Mezzo',
 						'Verbali o Multe'=>'Verbali o Multe',
-						'Stipendio Imposto'=>'Stipendio Imposto',
+						'Stipendio'=>'Stipendio',
 						'Varie'=>'Varie',
 					),
 					array(

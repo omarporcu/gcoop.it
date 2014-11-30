@@ -81,7 +81,7 @@
 										$('#Conteggi_main_societa').val(ui.item.societa);
 										$('#Conteggi_main_mansione').val(ui.item.mansione);
 										
-										$('#Conteggi_main_targa').find('option').remove().end();
+										$('#Conteggi_main_targa').empty();
 										var targhe = ui.item.targa;
 										$.each(targhe,function(k,v){
 											$('#Conteggi_main_targa').append($('<option>',{text: v}));	

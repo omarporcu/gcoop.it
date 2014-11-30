@@ -14,7 +14,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Anagrafica', 'url'=>array('anagrafica/view/'.$an)),
 	array('label'=>'Nuovo Mezzo', 'url'=>array('create?an='.$an.'&ut='.$ut)),
-	array('label'=>'Modifica Mezzo', 'url'=>array('update', 'id'=>$model->id)),
+	array('label'=>'Modifica Mezzo', 'url'=>array('update', 'id'=>$model->id, 'an'=>$an, 'ut'=>$ut)),
 	array('label'=>'Elimina Mezzo', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id,'an'=>$an),'confirm'=>'Sicuro di voler eliminare il Mezzo?')),
 	//array('label'=>'Manage Mezzi', 'url'=>array('admin')),
 );

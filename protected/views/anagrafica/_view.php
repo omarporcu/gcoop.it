@@ -63,6 +63,12 @@
 			</td>
 		</tr>
 		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'status'); ?>
+				<?php echo CHtml::encode($model->status); ?>
+			</td>
+		</tr>
+		<tr>
 			<td colspan="2">
 				<div class="portlet-decoration">
 					<div class="portlet-title">

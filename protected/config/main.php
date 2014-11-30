@@ -100,14 +100,14 @@ return array(
 		
 		//LOCAL
 		
-		/*'db'=>array(
+		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=gcoopit95679',
 			'emulatePrepare' => true,
 			'username' => 'root',
 			'password' => 'root',
 			'charset' => 'utf8',
 		),
-		*/
+		
 		//DEMO
 		/*
 		'db'=>array(
@@ -119,7 +119,7 @@ return array(
 		),
 		*/
 		//LIVE
-		
+		/*
 		'db'=>array(
 			'connectionString' => 'mysql:host=62.149.150.226;dbname=Sql806743_1',
 			'emulatePrepare' => true,
@@ -127,7 +127,7 @@ return array(
 			'password' => '78b8jeq00u',
 			'charset' => 'utf8',
 		),
-		
+		*/
 		//LIVE_OLD
 		/*
 		'db'=>array(

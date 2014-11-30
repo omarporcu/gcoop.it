@@ -47,7 +47,7 @@
 			$this->targa = $this->targa ? $this->targa : "";
 			$this->societa = $this->societa ? $this->societa : "";
 			$this->citta = $this->citta ? $this->citta : "";
-			$this->totale = $this->totale ? $this->totale : "";
+			$this->totale = $this->totale ? $this->totale : "0";
 			$this->bonifico = $this->bonifico ? $this->bonifico : "";
 			$this->note = $this->note ? $this->note : "";
 			//END CUSTOM
@@ -141,8 +141,16 @@
 				for($row=0;$row<$n;++$row)
 					echo $this->renderRow($row);
 			}
-
+			
+			echo '
+				<tr style="background-color:#ddd;font-weight:bold;">
+					<td colspan="2" align="right">Totale</td>
+					<td align="right"> € '.$this->totale.' </td>
+				</tr>
+			';
+			
 			echo '</table>';
+
 			$table = ob_get_contents();
 			//exit;
 			ob_end_clean();			
@@ -152,12 +160,14 @@
 
 		public function renderRow($row)
 		{
+			
 			$bgcolor="";
 			if($row%2==0) $bgcolor="#eee";
 			$tr='<tr style="background-color:'.$bgcolor.';">';			
 			$data=$this->dataProvider->getData();		
 
 			$a=0;
+			$tot=0;
 			foreach($this->columns as $n=>$column)
 			{
 				$value="";
@@ -187,7 +197,7 @@
 			return $tr;				
 		}
 
-		public function row($value="",$width="",$align="left"){
+		public function row($value="",$width="",$align="right"){
 	    	$row  = '<td ';
 	    	
 	    	$row .= 'style="';
@@ -206,7 +216,8 @@
 			$this->pdf->addPage();
 			// TITLE
 			$this->pdf->SetFont('helvetica', 'B', 16);
-			$this->pdf->Write(0, $this->title, '', 0, 'L', true, 0, false, false, 0);
+			//$this->pdf->Write(0, $this->title, '', 0, 'L', true, 0, false, false, 0);
+			$this->pdf->Write(0, 'Conteggi', '', 0, 'L', true, 0, false, false, 0);
 			
 			//CUSTOM
 			if($this->anagrafica) {

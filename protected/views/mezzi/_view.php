@@ -96,6 +96,10 @@
 				<?php echo $form->labelEx($model,'scadenza_bollo'); ?>
 				<?php echo CHtml::encode($model->scadenza_bollo); ?>
 			</td>
+			<td>
+				<?php echo $form->labelEx($model,'stato'); ?>
+				<?php echo CHtml::encode($model->stato); ?>
+			</td>
 		</tr>
 		<tr>
 			<td colspan="2">

@@ -101,11 +101,29 @@ class AllegatiController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Allegati']))
+/*		if(isset($_POST['Allegati']))
 		{
 			$model->attributes=$_POST['Allegati'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
+		}
+*/
+
+		if(isset($_POST['Allegati']))
+		{
+			$model->attributes=$_POST['Allegati'];
+			
+			$uploadedFile=CUploadedFile::getInstance($model,'allegato');
+			$fileName = "{$uploadedFile}";
+			$model->allegato = $fileName;
+			
+			if($model->save())
+			{
+				$uploadedFile->saveAs(Yii::app()->basePath.'/../files/'.$fileName);
+					
+				//$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array($_GET['sez'].'/view','id'=>$_GET['idsez']));
+			}
 		}
 
 		$this->render('update',array(

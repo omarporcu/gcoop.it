@@ -20,18 +20,40 @@ $this->menu=array(
 
 <?php $this->renderPartial('_view', array('model'=>$model)); ?>
 
-
-
-<!--?php $this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model,
-	'attributes'=>array(
-		'id',
-		'anagrafica',
-		'mese',
-		'anno',
-		'g_lavorati',
-		'importo',
-		'data',
-		'note',
+	<table style="margin-bottom: 0px !important; margin-top: 2em !important;">
+		<tr>
+			<td colspan="2">
+				<div class="portlet-decoration">
+					<div class="portlet-title">
+						Busta Paga
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+	
+<?php $this->widget('zii.widgets.grid.CGridView', array(
+	'ajaxUpdate'=>'ajaxContent',
+	//'selectionChanged'=>"function(id){window.location='" . Yii::app()->urlManager->createUrl('allegati/view?sez=documenti&idsez='.$model->id, array('id'=>'')) . "' + $.fn.yiiGridView.getSelection(id);}",
+	'selectionChanged'=>"function(id){window.location='" . Yii::app()->urlManager->createUrl('./allegati/view?idsez='.$model->id.'&sez=cedolini&id=') . "' + $.fn.yiiGridView.getSelection(id);}",
+		'id'=>'allegati-grid',
+	//'summaryText'=>CHtml::link('[+] Aggiungi Allegato','../allegati/create?an='.$_GET['id'].'&ut='.$nomecognome,array('class'=>'')),
+	'summaryText'=>CHtml::link('[+] Aggiungi Allegato','../allegati/create?idsez='.$_GET['id'].'&sez=cedolini&id='.$model->id,array('class'=>'')),
+	'dataProvider'=>Allegati::model()->searchByMezzo('"cedolini"',$_GET['id']),
+	//'filter'=>$model,
+	'columns'=>array(
+		//'id',
+		//'sezione',
+		//'idsezione',
+		'allegato',
+		'nome',
+		'descrizione',
+		'data_inserimento',
+		//'privato',
+		//'visibile',
+		/*array(
+			'class'=>'CButtonColumn',
+		),*/
 	),
-)); ?-->
+)); ?>
+

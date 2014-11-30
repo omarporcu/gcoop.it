@@ -244,25 +244,29 @@ class Conteggi_mainController extends Controller
 					'params'=>array(':nome'=>'%'.$_GET['term'].'%'),	
 				)
 			);
-			
-			$t = new CDbCriteria(
-				array(
-					'condition'=>"assegnatario LIKE :nome",
-					'params'=>array(':nome'=>'%'.$_GET['term'].'%'),
-				)
-			);
-			
-			$targa=Mezzi::model()->findAll($t);
-			
-			foreach ($targa as $rt) {
-				//	$tar[]=array($rt['targa']);
-				$tar[]=$rt['targa'];
-			}
-			
+						
 			$anagrafica=Anagrafica::model()->findAll($q);
 			
 			foreach ($anagrafica as $r) 
 			{
+				
+				$cognomenome = ltrim(rtrim($r['cognome']))." ".ltrim(rtrim($r['nome']));
+					
+				$t = new CDbCriteria(
+					array(
+						'condition'=>"assegnatario LIKE :anag",
+						//'params'=>array(':nome'=>'%'.$_GET['term'].'%'),
+						'params'=>array(':anag'=>'%'.$cognomenome.'%'),
+					)
+				);
+				
+				$targa=Mezzi::model()->findAll($t);
+				
+				foreach ($targa as $rt) {
+					//	$tar[]=array($rt['targa']);
+					$tar[]=$rt['targa'];
+				}
+
 				$riga[]=array(
 					'id'=>$r['id'],
 	                'label'=>ltrim(rtrim($r['nome']))." ".ltrim(rtrim($r['cognome'])),
@@ -271,7 +275,7 @@ class Conteggi_mainController extends Controller
 	                'societa'=>$r['id_societa'],
 	                'mansione'=>$r['mansione'],
 	                'targa'=>$tar,
-	                //'targa'=>Mezzi::model()->findAll($t),
+	                //'targa'=>$cognomenome,
 				);
 								
 				/*$targa=Mezzi::model()->findAll($t);
@@ -371,7 +375,8 @@ class Conteggi_mainController extends Controller
 			'societa'=>$conteggio->societa,
 			'citta'=>$conteggio->citta,
 			'bonifico'=>$conteggio->bonifico,
-			'totale'=>$conteggio->totale,
+			//'totale'=>$conteggio->totale,
+			'totale'=>Vocicont::model()->getTotals($conteggio->id),
 			'note'=>$conteggio->note,
 			'dataProvider'=>$model->searchByConteggio($id_conteggio),
 			'filter'=>$model,

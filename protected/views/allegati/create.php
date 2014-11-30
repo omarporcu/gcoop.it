@@ -46,6 +46,26 @@ if ($sez=="parco") {
 		$ut,
 		'Nuovo Allegato',
 	);
+	
+} elseif ($sez=="fatture") {
+		
+	$id=Fatture::model()->findByPk($idsez);
+	$ut="Fattura ".$idsez;
+	
+	$this->breadcrumbs=array(
+		'Fatture'=>array('fatture/index'),
+		'Nuovo Allegato',
+	);
+
+} elseif ($sez=="cedolini") {
+		
+	$id=Fatture::model()->findByPk($idsez);
+	$ut="Busta paga ".$idsez;
+	
+	$this->breadcrumbs=array(
+		'Buste Paga'=>array('cedolini/index'),
+		'Nuovo Allegato',
+	);
 
 } else {
 	$an=$_GET['an'];

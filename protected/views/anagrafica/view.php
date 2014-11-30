@@ -104,10 +104,10 @@ $this->menu=array(
 	'dataProvider'=>Contratti::model()->searchByAnagrafica($nomecognome),
 	//'filter'=>Mezzi::model(),
 	'columns'=>array(
-		'ncontratto',
+		//'ncontratto',
 		//'utente',
+		'tipologia',
 		'societa',
-		//'tipologia',
 		'data_inizio',
 		'data_fine',
 		//'ruolo',

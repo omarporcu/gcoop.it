@@ -84,6 +84,13 @@
 			</td>
 		</tr>
 		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'status'); ?>
+				<?php echo $form->textField($model,'status',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($model,'status'); ?>
+			</td>
+		</tr>
+		<tr>
 			<td colspan="2">
 				<div class="portlet-decoration">
 					<div class="portlet-title">

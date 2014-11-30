@@ -111,6 +111,11 @@
 				<?php echo $form->textField($model,'scadenza_bollo',array('size'=>45,'maxlength'=>45)); ?>
 				<?php echo $form->error($model,'scadenza_bollo'); ?>
 			</td>
+			<td>
+				<?php echo $form->labelEx($model,'stato'); ?>
+				<?php echo $form->textField($model,'stato',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($model,'stato'); ?>
+			</td>
 		</tr>
 		<tr>
 			<td colspan="2">
